@@ -1,6 +1,6 @@
-package com.Mohit.projects.hotelManagementAndBooking.entity;
+package com.codingshuttle.projects.airBnbApp.entity;
 
-import com.Mohit.projects.hotelManagementAndBooking.entity.enums.PaymentStatus;
+import com.codingshuttle.projects.airBnbApp.entity.enums.PaymentStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,14 +19,14 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true,nullable = false)
+    @Column(unique = true, nullable = false)
     private String transactionId;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private PaymentStatus paymentStatus;
 
-    @Column(nullable = false,precision = 10,scale = 2)
+    @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal amount;
 
     @CreationTimestamp
@@ -34,6 +34,4 @@ public class Payment {
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;
-
-
 }

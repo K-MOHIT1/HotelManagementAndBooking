@@ -1,38 +1,28 @@
-package com.Mohit.projects.hotelManagementAndBooking.entity;
-
+package com.codingshuttle.projects.airBnbApp.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
-@Setter
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@Table(name = "room")
-public class Room {
+@Setter
+@Table(name = "hotel")
+public class Hotel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "hotel_id",nullable = false)
-    private Hotel hotel;
-
     @Column(nullable = false)
-    private String Type;
+    private String name;
 
-    @Column(nullable = false,precision = 10, scale = 2)
-    private BigDecimal basePrice;
+    private String city;
 
     @Column(columnDefinition = "TEXT[]")
     private String[] photos;
@@ -40,19 +30,22 @@ public class Room {
     @Column(columnDefinition = "TEXT[]")
     private String[] amenities;
 
-    @Column(nullable = false)
-    private Integer totalCount;
-
-    @Column(nullable = false)
-    private Integer capacity;
-
     @CreationTimestamp
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
+    @Embedded
+    private HotelContactInfo contactInfo;
 
+    @Column(nullable = false)
+    private Boolean active;
 
+    @ManyToOne
+    private User owner;
+
+    @OneToMany(mappedBy = "hotel")
+    private List<Room> rooms;
 
 }

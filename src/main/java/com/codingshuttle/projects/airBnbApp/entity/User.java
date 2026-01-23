@@ -1,6 +1,6 @@
-package com.Mohit.projects.hotelManagementAndBooking.entity;
+package com.codingshuttle.projects.airBnbApp.entity;
 
-import com.Mohit.projects.hotelManagementAndBooking.entity.enums.Role;
+import com.codingshuttle.projects.airBnbApp.entity.enums.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,8 +17,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
-    @Column(unique = true,nullable = false)
+    @Column(unique = true, nullable = false)
     private String email;
 
     @Column(nullable = false)
@@ -29,6 +28,4 @@ public class User {
     @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
-
-
 }

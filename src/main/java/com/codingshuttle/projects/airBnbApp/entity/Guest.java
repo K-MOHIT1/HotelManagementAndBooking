@@ -1,11 +1,9 @@
-package com.Mohit.projects.hotelManagementAndBooking.entity;
+package com.codingshuttle.projects.airBnbApp.entity;
 
-import com.Mohit.projects.hotelManagementAndBooking.entity.enums.Gender;
+import com.codingshuttle.projects.airBnbApp.entity.enums.Gender;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.Set;
 
 @Entity
 @Getter
@@ -27,5 +25,4 @@ public class Guest {
     private Gender gender;
 
     private Integer age;
-
 }

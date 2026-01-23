@@ -1,4 +1,4 @@
-package com.Mohit.projects.hotelManagementAndBooking.entity.enums;
+package com.codingshuttle.projects.airBnbApp.entity.enums;
 
 public enum BookingStatus {
     RESERVED,
